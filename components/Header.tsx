@@ -20,7 +20,6 @@ const THEME_SEGMENTS: { value: Theme; label: string; title: string }[] = [
 const NAV_LINKS = [
   { label: 'Features', href: '#features', tip: 'See all features'  },
   { label: 'Pricing',  href: '#pricing',  tip: 'View pricing plans' },
-  { label: 'Builder',   href: '/builder',  tip: 'Open the NChartPro builder' },
   { label: 'Blog',     href: '#',         tip: 'Read our blog'      },
   { label: 'Docs',     href: '#',         tip: 'Documentation'      },
 ];

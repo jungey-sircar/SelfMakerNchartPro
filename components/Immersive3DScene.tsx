@@ -490,35 +490,55 @@ export default function Immersive3DScene() {
                   justifyContent: 'flex-end',
                   padding: 'clamp(1rem, 2vw, 1.6rem)',
                   overflow: 'hidden',
-                  /* Blue glassmorphism — matching pricing cards */
-                  background: `linear-gradient(
-                    160deg,
-                    rgba(99, 102, 241, 0.15) 0%,
-                    rgba(30, 30, 50, 0.55) 25%,
-                    rgba(15, 15, 25, 0.50) 50%,
-                    rgba(30, 30, 55, 0.55) 75%,
-                    rgba(99, 102, 241, 0.10) 100%
-                  )`,
+                  background: isFocused
+                    ? `linear-gradient(
+                        160deg,
+                        rgba(99, 102, 241, 0.20) 0%,
+                        rgba(30, 30, 50, 0.65) 25%,
+                        rgba(15, 15, 25, 0.58) 50%,
+                        rgba(30, 30, 55, 0.65) 75%,
+                        rgba(99, 102, 241, 0.16) 100%
+                      )`
+                    : `linear-gradient(
+                        160deg,
+                        rgba(99, 102, 241, 0.15) 0%,
+                        rgba(30, 30, 50, 0.55) 25%,
+                        rgba(15, 15, 25, 0.50) 50%,
+                        rgba(30, 30, 55, 0.55) 75%,
+                        rgba(99, 102, 241, 0.10) 100%
+                      )`,
                   backdropFilter: 'blur(28px) saturate(1.6) brightness(1.1)',
                   WebkitBackdropFilter: 'blur(28px) saturate(1.6) brightness(1.1)',
-                  border: '1.5px solid rgba(99, 102, 241, 0.35)',
-                  boxShadow: `
-                    0 0 40px rgba(99, 102, 241, 0.12),
-                    0 8px 32px rgba(0, 0, 0, 0.4),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-                    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
-                    inset 0 -1px 0 rgba(99, 102, 241, 0.08)
-                  `,
+                  border: isFocused ? '1.5px solid rgba(99, 102, 241, 0.55)' : '1.5px solid rgba(99, 102, 241, 0.35)',
+                  boxShadow: isFocused
+                    ? `
+                      0 0 60px rgba(99, 102, 241, 0.24),
+                      0 14px 52px rgba(0, 0, 0, 0.52),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+                      inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+                      inset 0 -1px 0 rgba(99, 102, 241, 0.12)
+                    `
+                    : `
+                      0 0 40px rgba(99, 102, 241, 0.12),
+                      0 8px 32px rgba(0, 0, 0, 0.4),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+                      inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+                      inset 0 -1px 0 rgba(99, 102, 241, 0.08)
+                    `,
                 } as React.CSSProperties}
                   onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(99, 102, 241, 0.50)';
-                  (e.currentTarget as HTMLElement).style.boxShadow =
-                    '0 0 60px rgba(99,102,241,0.20), 0 12px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.18), inset 0 0 0 1px rgba(255,255,255,0.08)';
+                  const target = e.currentTarget as HTMLElement;
+                  target.style.borderColor = isFocused ? 'rgba(99, 102, 241, 0.65)' : 'rgba(99, 102, 241, 0.50)';
+                  target.style.boxShadow = isFocused
+                    ? '0 0 72px rgba(99,102,241,0.28), 0 16px 56px rgba(0,0,0,0.56), inset 0 1px 0 rgba(255,255,255,0.20), inset 0 0 0 1px rgba(255,255,255,0.10), inset 0 -1px 0 rgba(99,102,241,0.14)'
+                    : '0 0 60px rgba(99,102,241,0.20), 0 12px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.18), inset 0 0 0 1px rgba(255,255,255,0.08)';
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(99, 102, 241, 0.35)';
-                  (e.currentTarget as HTMLElement).style.boxShadow =
-                    '0 0 40px rgba(99,102,241,0.12), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 0 1px rgba(255,255,255,0.06)';
+                  const target = e.currentTarget as HTMLElement;
+                  target.style.borderColor = isFocused ? 'rgba(99, 102, 241, 0.55)' : 'rgba(99, 102, 241, 0.35)';
+                  target.style.boxShadow = isFocused
+                    ? '0 0 60px rgba(99,102,241,0.24), 0 14px 52px rgba(0,0,0,0.52), inset 0 1px 0 rgba(255,255,255,0.18), inset 0 0 0 1px rgba(255,255,255,0.08), inset 0 -1px 0 rgba(99,102,241,0.12)'
+                    : '0 0 40px rgba(99,102,241,0.12), 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 0 1px rgba(255,255,255,0.06)';
                 }}
               >
                 <button
