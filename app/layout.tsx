@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
 import { cookies } from "next/headers";
 import "./globals.css";
-import { ThemeProvider } from "../components/ThemeProvider";
-import { QuizProvider }  from "../components/QuizProvider";
-import ScaleFactorSetter     from "../components/ScaleFactorSetter";
+import { ThemeProvider } from "../components/providers/ThemeProvider";
+import { QuizProvider }  from "../components/providers/QuizProvider";
+import ScaleFactorSetter     from "../components/effects/ScaleFactorSetter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

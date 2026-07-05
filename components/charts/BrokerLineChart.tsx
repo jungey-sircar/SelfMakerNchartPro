@@ -6,7 +6,7 @@
  * but accepts generic line names so it can be reused anywhere.
  *
  * Usage:
- *   import BrokerLineChart, { type LinePoint } from '@/app/components/BrokerLineChart';
+ *   import BrokerLineChart, { type LinePoint } from '@/components/charts/BrokerLineChart';
  *
  *   <BrokerLineChart data={points} line1="Buy" line2="Sell" line3="Holding" />
  */

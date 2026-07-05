@@ -1,17 +1,17 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { useTheme } from './ThemeProvider';
+import { useTheme } from '../providers/ThemeProvider';
 import Header from './Header';
-import HeroSection from './HeroSection';
+import HeroSection from '../sections/HeroSection';
 import Footer from './Footer';
-import AuthModal, { type AuthUser } from './AuthModal';
-import MatrixCanvas from './MatrixCanvas';
-import LightTrails from './LightTrails';
-import ScrollPerspective from './ScrollPerspective';
-import CanvasCursor from './CanvasCursor';
-import Immersive3DScene from './Immersive3DScene';
-import PricingSection from './PricingSection';
+import AuthModal, { type AuthUser } from '../overlays/AuthModal';
+import MatrixCanvas from '../backgrounds/MatrixCanvas';
+import LightTrails from '../effects/LightTrails';
+import ScrollPerspective from '../effects/ScrollPerspective';
+import CanvasCursor from '../effects/CanvasCursor';
+import Immersive3DScene from '../visuals/Immersive3DScene';
+import PricingSection from '../sections/PricingSection';
 
 export default function LandingPage() {
   const { theme } = useTheme();

@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { type Theme } from './ThemeProvider';
-import WordmarkCanvas from './WordmarkCanvas';
+import { type Theme } from '../providers/ThemeProvider';
+import WordmarkCanvas from '../effects/WordmarkCanvas';
 import { useAdaptiveFontSize } from '@/app/hooks/useAdaptiveFontSize';
 
 // CandleBackground intentionally removed — candles now appear exclusively
